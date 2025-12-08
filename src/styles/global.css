@@ -1,10 +1,258 @@
-/*
+--- import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+import {
+	SITE_TITLE,
+	SITE_DESCRIPTION
+}
+
+from '../consts';
+
+--- < !doctype html><html lang="en"><head><BaseHead title= {
+	SITE_TITLE
+}
+
+description= {
+	SITE_DESCRIPTION
+}
+
+/></head><body><Header /><main>< !-- Hero Section --><section class="hero"><div class="hero-content"><h1>Welcome to a Path of Healing</h1><p class="subtitle">Valerie C. Muñoz,
+M.A.,
+M.F.T.</p><p class="tagline">Child & Family Therapist • Holistic Healing Approach</p><a href="/about" class="cta-button">Learn More About My Approach</a></div></section>< !-- Introduction --><section class="intro"><div class="container"><h2>A Holistic Approach to Healing</h2><p>I believe in treating the whole person—mind,
+body,
+and spirit. Through compassionate,
+evidence-based therapy,
+I help individuals and families navigate life's challenges and 
+ discover their path to wellness. </p></div></section>< !-- Services Overview --><section class="services-preview"><div class="container"><h2>How I Can Help</h2><div class="services-grid"><div class="service-card"><div class="service-icon">👨‍👩‍👧‍👦</div><h3>Child & Family Therapy</h3><p>Supporting children and families through developmental challenges,
+family dynamics,
+and relationship healing.</p></div><div class="service-card"><div class="service-icon">💪</div><h3>Domestic Abuse Recovery</h3><p>Specialized support for survivors of domestic violence,
+helping women rebuild their lives with strength and dignity.</p></div><div class="service-card"><div class="service-icon">🌿</div><h3>Holistic Healing</h3><p>Integrating mind,
+body,
+and spirit approaches to create lasting,
+transformative change.</p></div></div><div class="center-button"><a href="/services" class="secondary-button">View All Services</a></div></div></section>< !-- Call to Action --><section class="cta-section"><div class="container"><h2>Ready to Begin Your Healing Journey?</h2><p>Taking the first step takes courage. I'm here to support you.</p>
+ <a href="/contact" class="cta-button">Get in Touch</a></div></section></main><Footer /><style>* {
+	box-sizing: border-box;
+}
+
+main {
+	width: 100%;
+}
+
+.hero {
+	background: linear-gradient(135deg, #4facb1 0%, #7ab88f 50%, #a8d5ba 100%);
+	color: white;
+	padding: 8rem 2rem 6rem;
+	text-align: center;
+	position: relative;
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+	pointer-events: none;
+}
+
+.hero-content {
+	position: relative;
+	z-index: 1;
+}
+
+.hero-content h1 {
+	font-size: 3.5rem;
+	margin-bottom: 1rem;
+	font-weight: 300;
+	letter-spacing: -0.5px;
+}
+
+.subtitle {
+	font-size: 1.8rem;
+	margin-bottom: 0.5rem;
+	opacity: 0.95;
+	font-weight: 400;
+}
+
+.tagline {
+	font-size: 1.2rem;
+	margin-bottom: 2.5rem;
+	opacity: 0.9;
+	font-weight: 300;
+}
+
+.cta-button {
+	display: inline-block;
+	background: white;
+	color: #4facb1;
+	padding: 1.2rem 2.5rem;
+	border-radius: 50px;
+	text-decoration: none;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.intro {
+	padding: 6rem 0;
+	text-align: center;
+	background: #fafcfc;
+}
+
+.intro h2 {
+	font-size: 2.8rem;
+	margin-bottom: 1.5rem;
+	color: #2d5f5d;
+	font-weight: 300;
+}
+
+.intro p {
+	font-size: 1.3rem;
+	line-height: 1.9;
+	max-width: 850px;
+	margin: 0 auto;
+	color: #5a7c7a;
+}
+
+.services-preview {
+	padding: 6rem 0;
+	background: white;
+}
+
+.services-preview h2 {
+	font-size: 2.8rem;
+	text-align: center;
+	margin-bottom: 3.5rem;
+	color: #2d5f5d;
+	font-weight: 300;
+}
+
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 2.5rem;
+	margin-bottom: 3rem;
+}
+
+.service-card {
+	background: #fafcfc;
+	padding: 3rem 2rem;
+	border-radius: 20px;
+	text-align: center;
+	transition: all 0.4s ease;
+	border: 1px solid #e8f3f1;
+}
+
+.service-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 15px 40px rgba(79, 172, 177, 0.15);
+	border-color: #c5e5e2;
+}
+
+.service-icon {
+	font-size: 3.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+	color: #4facb1;
+	margin-bottom: 1.2rem;
+	font-size: 1.6rem;
+	font-weight: 400;
+}
+
+.service-card p {
+	color: #5a7c7a;
+	line-height: 1.7;
+	font-size: 1.05rem;
+}
+
+.center-button {
+	text-align: center;
+}
+
+.secondary-button {
+	display: inline-block;
+	background: linear-gradient(135deg, #4facb1 0%, #7ab88f 100%);
+	color: white;
+	padding: 1rem 2.5rem;
+	border-radius: 50px;
+	text-decoration: none;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(79, 172, 177, 0.2);
+}
+
+.secondary-button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 25px rgba(79, 172, 177, 0.3);
+}
+
+.cta-section {
+	background: linear-gradient(135deg, #d4a574 0%, #c9956f 50%, #be8a6a 100%);
+	color: white;
+	padding: 6rem 2rem;
+	text-align: center;
+}
+
+.cta-section h2 {
+	font-size: 2.8rem;
+	margin-bottom: 1rem;
+	font-weight: 300;
+}
+
+.cta-section p {
+	font-size: 1.3rem;
+	margin-bottom: 2.5rem;
+	opacity: 0.95;
+	font-weight: 300;
+}
+
+@media (max-width: 768px) {
+	.hero-content h1 {
+		font-size: 2.2rem;
+	}
+
+	.subtitle {
+		font-size: 1.3rem;
+	}
+
+	.tagline {
+		font-size: 1rem;
+	}
+
+	.intro h2,
+	.services-preview h2,
+	.cta-section h2 {
+		font-size: 2rem;
+	}
+
+	.services-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Mock 1: 
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
-:root {
+ 
+  
+  :root {
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -144,12 +392,12 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	 IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box 
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
+	 maybe deprecated but we need to support legacy browsers 
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
+	modern browsers, clip-path works inwards from each corner 
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	 added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space 
 	white-space: nowrap;
-}
+} */
